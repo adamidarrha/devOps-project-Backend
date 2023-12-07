@@ -27,7 +27,7 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-   - name: Install Maven dependencies
+    - name: Install Maven dependencies
         run: mvn install
 
 
