@@ -1,7 +1,0 @@
-From eclipse-temurin:21-jdk-alpine
-#what port to expose
-EXPOSE 8080
-#what jar file is going to be created and where , and what to name it in destination
-ADD target/spring-boot.jar spring-boot.jar
-#what to execute= java -jar spring-boot.jar
-CMD [ "java", "-jar", "spring-boot.jar" ]
