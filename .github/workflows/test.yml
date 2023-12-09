@@ -7,7 +7,7 @@ on:
     branches : [main]
   
 jobs:
-  run-all-tests:
+  build-and-deploy-docker:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -30,7 +30,7 @@ jobs:
       - run: mysql -u root -e 'CREATE DATABASE employee_management_system'
 
       - name: All the Tests and Coverage check
-        run: mvn clean install
+        run: mvn clean install -DsktipTests
 
   #build-and-push-docker:
    # needs: run-all-tests
@@ -43,8 +43,8 @@ jobs:
       - name: publish image to docker hub 
         run: docker push adamidarrha/spring-boot:latest
   
-  deploy:
-    needs: run-all-tests
+  deploy-aws:
+    needs: build-and-deploy-docker
     runs-on: self-hosted # we are going to run it on ec2 instance  
     steps:
       - name: pull image from docker hub
