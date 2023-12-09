@@ -32,7 +32,7 @@ jobs:
       - name: change root password
         run: mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY 'root'"
 
-      - name: All the Tests and Coverage check
+      - name: build mvn jar without tests
         run: mvn clean install -Dmaven.test.skip=true
 
   #build-and-push-docker:
