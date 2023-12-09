@@ -45,7 +45,7 @@ jobs:
   
   deploy:
     needs: run-all-tests
-    runs-on: self-hosted # we are going to run it on ec2 instance 
+    runs-on: self-hosted # we are going to run it on ec2 instance  
     steps:
       - name: pull image from docker hub
         run: sudo docker pull adamidarrha/spring-boot:latest  
