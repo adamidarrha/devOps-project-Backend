@@ -41,14 +41,14 @@ jobs:
       - name: build docker image
         run: docker build -t adamidarrha/spring-boot .
       - name: publish image to docker hub 
-        run: docker push adamidarrha/spring-boot:springBootImage
+        run: docker push adamidarrha/spring-boot:latest
   
   deploy:
     needs: run-all-tests
     runs-on: springBootRunner # we are going to run it on ec2 instance
     steps:
       - name: pull image from docker hub
-        run: docker pull adamidarrha/spring-boot:springBootImage  
+        run: docker pull adamidarrha/spring-boot:latest  
 
       - name: delete old container
         run: docker rm -f springBootContainer
