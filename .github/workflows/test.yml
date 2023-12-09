@@ -42,7 +42,7 @@ jobs:
           image: adamidarrha/spring-boot
           tags: springBootImage
           registry: docker.io
-          dockerfile: Dockerfile
+          #dockerfile: Dockerfile
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
   
@@ -52,7 +52,7 @@ jobs:
     steps:
       - name: pull image from docker hub
         run: docker pull adamidarrha/spring-boot:springBootImage  
-        
+
       - name: delete old container
         run: docker rm -f springBootContainer
       
