@@ -48,10 +48,10 @@ jobs:
     runs-on: self-hosted # we are going to run it on ec2 instance 
     steps:
       - name: pull image from docker hub
-        run: docker pull adamidarrha/spring-boot:latest  
+        run: sudo docker pull adamidarrha/spring-boot:latest  
 
       - name: delete old container
-        run: docker rm -f springBootContainer
+        run: sudo docker rm -f springBootContainer
       
       - name: run docker container on ec2
-        run: docker run -d -p 8080:8080 --name springBootContainer adamidarrha/spring-boot
+        run: sudo docker run -d -p 8080:8080 --name springBootContainer adamidarrha/spring-boot
