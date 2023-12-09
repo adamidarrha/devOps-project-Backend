@@ -30,7 +30,7 @@ jobs:
       - run: mysql -u root -e 'CREATE DATABASE employee_management_system'
 
       - name: change root password
-        run: mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY 'root"
+        run: mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY 'root'"
 
       - name: All the Tests and Coverage check
         run: mvn clean install -Dmaven.test.skip=true
